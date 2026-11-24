@@ -1,0 +1,439 @@
+
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liên Quân Mobile - Đấu Trường Huyền Thoại</title>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: Arial, sans-serif;
+            background: #080e20;
+            color: white;
+            line-height: 1.7;
+        }
+
+        /* THANH MENU */
+        header {
+            background: linear-gradient(90deg, #101c3b, #172d55);
+            padding: 20px 8%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            border-bottom: 2px solid #d7a83d;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            color: #ffd76a;
+        }
+
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin-left: 20px;
+            font-weight: bold;
+            transition: 0.3s;
+        }
+
+        nav a:hover {
+            color: #ffd76a;
+        }
+
+        /* BANNER */
+        .banner {
+            min-height: 420px;
+            background:
+                linear-gradient(90deg, rgba(5,10,25,.95),
+                rgba(5,10,25,.35)),
+                url("https://images.unsplash.com/photo-1542751371-adc38448a05e?w=1600")
+                center/cover;
+            display: flex;
+            align-items: center;
+            padding: 60px 10%;
+        }
+
+        .banner-content {
+            max-width: 650px;
+        }
+
+        .banner h1 {
+            font-size: 48px;
+            color: #ffd76a;
+            text-transform: uppercase;
+            line-height: 1.2;
+        }
+
+        .banner p {
+            margin: 20px 0;
+            font-size: 18px;
+            color: #e0e7ff;
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 12px 28px;
+            background: linear-gradient(90deg, #d89c28, #ffe08a);
+            color: #10172c;
+            text-decoration: none;
+            font-weight: bold;
+            border-radius: 30px;
+            transition: .3s;
+        }
+
+        .btn:hover {
+            transform: scale(1.08);
+            box-shadow: 0 0 20px #ffd76a;
+        }
+
+        /* NỘI DUNG */
+        .container {
+            width: 85%;
+            max-width: 1200px;
+            margin: auto;
+            padding: 55px 0;
+        }
+
+        .section-title {
+            color: #ffd76a;
+            font-size: 30px;
+            text-align: center;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+        }
+
+        .intro {
+            text-align: center;
+            font-size: 17px;
+            color: #d1d9ee;
+            max-width: 850px;
+            margin: auto;
+        }
+
+        /* THẺ THÔNG TIN */
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 25px;
+            margin-top: 35px;
+        }
+
+        .card {
+            background: #14213d;
+            padding: 25px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid #34466d;
+            transition: .3s;
+        }
+
+        .card:hover {
+            transform: translateY(-10px);
+            border-color: #ffd76a;
+            box-shadow: 0 10px 30px #0008;
+        }
+
+        .card .icon {
+            font-size: 42px;
+        }
+
+        .card h3 {
+            color: #ffd76a;
+            margin: 10px 0;
+        }
+
+        /* DANH SÁCH */
+        .list-box {
+            background: #14213d;
+            padding: 30px;
+            border-radius: 15px;
+            margin-top: 30px;
+        }
+
+        .list-box li {
+            padding: 9px;
+            color: #e0e7ff;
+        }
+
+        .list-box li::marker {
+            color: #ffd76a;
+        }
+
+        /* HÌNH ẢNH */
+        .gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+            gap: 20px;
+        }
+
+        .gallery img {
+            width: 100%;
+            height: 230px;
+            object-fit: cover;
+            border-radius: 15px;
+            border: 2px solid #34466d;
+            transition: .3s;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.04);
+            border-color: #ffd76a;
+        }
+
+        /* BẢNG */
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 25px;
+            background: #14213d;
+            border-radius: 12px;
+            overflow: hidden;
+        }
+
+        th {
+            background: #b98729;
+            color: #10172c;
+            padding: 15px;
+        }
+
+        td {
+            padding: 14px;
+            text-align: center;
+            border-bottom: 1px solid #34466d;
+        }
+
+        tr:hover {
+            background: #24365c;
+        }
+
+        .rank {
+            color: #ffd76a;
+            font-weight: bold;
+        }
+
+        /* FOOTER */
+        footer {
+            background: #050a16;
+            text-align: center;
+            padding: 30px;
+            color: #9ba9c9;
+            border-top: 2px solid #b98729;
+        }
+
+        footer span {
+            color: #ffd76a;
+        }
+
+        @media(max-width: 600px) {
+            .banner h1 {
+                font-size: 32px;
+            }
+
+            nav {
+                margin-top: 15px;
+            }
+
+            nav a {
+                margin: 5px;
+                display: inline-block;
+            }
+
+            .container {
+                width: 92%;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <!-- MENU -->
+    <header>
+        <div class="logo">⚔ ARENA OF VALOR</div>
+
+        <nav>
+            <a href="#gioithieu">Giới thiệu</a>
+            <a href="#vitri">Vị trí</a>
+            <a href="#hinhanh">Hình ảnh</a>
+            <a href="#bangxephang">Bảng xếp hạng</a>
+        </nav>
+    </header>
+
+    <!-- BANNER -->
+    <section class="banner">
+        <div class="banner-content">
+            <h1>LIÊN QUÂN MOBILE</h1>
+
+            <p>
+                Bước vào đấu trường huyền thoại,
+                nơi những chiến binh mạnh mẽ cùng nhau
+                chinh phục vinh quang và trở thành huyền thoại!
+            </p>
+
+            <a href="#gioithieu" class="btn">
+                KHÁM PHÁ NGAY ⚔
+            </a>
+        </div>
+    </section>
+
+    <!-- GIỚI THIỆU -->
+    <section class="container" id="gioithieu">
+
+        <h2 class="section-title">🔥 Giới thiệu game</h2>
+
+        <p class="intro">
+            Liên Quân Mobile là tựa game MOBA trên nền tảng di động,
+            nơi người chơi tham gia những trận chiến 5 đấu 5 đầy
+            kịch tính. Mỗi vị tướng sở hữu bộ kỹ năng riêng,
+            đòi hỏi chiến thuật, kỹ năng cá nhân và tinh thần đồng đội.
+        </p>
+
+        <div class="cards">
+
+            <div class="card">
+                <div class="icon">⚔️</div>
+                <h3>Chiến đấu</h3>
+                <p>Tham gia các trận đấu 5vs5 hấp dẫn.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🛡️</div>
+                <h3>Đồng đội</h3>
+                <p>Phối hợp chiến thuật để giành chiến thắng.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🏆</div>
+                <h3>Xếp hạng</h3>
+                <p>Chinh phục các bậc rank cao nhất.</p>
+            </div>
+
+            <div class="card">
+                <div class="icon">🔥</div>
+                <h3>Kỹ năng</h3>
+                <p>Làm chủ tướng và thể hiện trình độ cá nhân.</p>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- CÁC VỊ TRÍ -->
+    <section class="container" id="vitri">
+
+        <h2 class="section-title">⚡ Các vị trí trong game</h2>
+
+        <div class="list-box">
+            <ol>
+                <li><b>Đường Caesar:</b> Đấu sĩ hoặc đỡ đòn, kiểm soát đường đơn.</li>
+                <li><b>Đường giữa:</b> Pháp sư, hỗ trợ giao tranh và kiểm soát bản đồ.</li>
+                <li><b>Đường Rồng:</b> Xạ thủ, gây sát thương chủ lực.</li>
+                <li><b>Trợ thủ:</b> Bảo vệ đồng đội, mở giao tranh.</li>
+                <li><b>Đi rừng:</b> Kiểm soát mục tiêu và hỗ trợ các đường.</li>
+            </ol>
+        </div>
+
+    </section>
+
+    <!-- HÌNH ẢNH -->
+    <section class="container" id="hinhanh">
+
+        <h2 class="section-title">🌟 Thế giới Liên Quân</h2>
+
+        <div class="gallery">
+
+            <img src="https://images.unsplash.com/photo-1542751371-adc38448a05e?w=600"
+                 alt="Đấu trường game">
+
+            <img src="https://images.unsplash.com/photo-1511512578047-dfb367046420?w=600"
+                 alt="Không gian gaming">
+
+            <img src="https://images.unsplash.com/photo-1547394765-185e1e68f34e?w=600"
+                 alt="Thiết bị gaming">
+
+        </div>
+
+    </section>
+
+    <!-- BẢNG XẾP HẠNG TƯỚNG -->
+    <section class="container" id="bangxephang">
+
+        <h2 class="section-title">🏆 Danh sách tướng tiêu biểu</h2>
+
+        <table>
+            <tr>
+                <th>STT</th>
+                <th>Tên tướng</th>
+                <th>Vai trò</th>
+                <th>Độ khó</th>
+                <th>Sức mạnh</th>
+            </tr>
+
+            <tr>
+                <td>01</td>
+                <td>Florentino</td>
+                <td>Đấu sĩ</td>
+                <td>Khó</td>
+                <td class="rank">★★★★★</td>
+            </tr>
+
+            <tr>
+                <td>02</td>
+                <td>Murad</td>
+                <td>Sát thủ</td>
+                <td>Rất khó</td>
+                <td class="rank">★★★★★</td>
+            </tr>
+
+            <tr>
+                <td>03</td>
+                <td>Tel'Annas</td>
+                <td>Xạ thủ</td>
+                <td>Dễ</td>
+                <td class="rank">★★★★☆</td>
+            </tr>
+
+            <tr>
+                <td>04</td>
+                <td>Yorn</td>
+                <td>Xạ thủ</td>
+                <td>Dễ</td>
+                <td class="rank">★★★★☆</td>
+            </tr>
+
+            <tr>
+                <td>05</td>
+                <td>Raz</td>
+                <td>Pháp sư</td>
+                <td>Khó</td>
+                <td class="rank">★★★★★</td>
+            </tr>
+
+        </table>
+
+    </section>
+
+    <!-- KẾT THÚC -->
+    <footer>
+        <h2><span>⚔ LIÊN QUÂN MOBILE ⚔</span></h2>
+
+        <p>
+            Chiến đấu hết mình - Đoàn kết chiến thắng -
+            Chinh phục huyền thoại!
+        </p>
+
+        <p>Website giới thiệu game | Thiết kế bằng HTML & CSS</p>
+
+        <p>© 2026 - Fan Website</p>
+    </footer>
+
+</body>
+</html>
